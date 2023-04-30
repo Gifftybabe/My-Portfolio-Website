@@ -152,18 +152,21 @@ ul li a:hover  {
     padding: 20px;
     margin-bottom: 50px;
     background: url(img/bg.jpg);
-
+    overflow: hidden;
 }
 
 #pic {
     display: flex;
+    align-items: flex-start;
+    margin-bottom: -100px;
+
 }
 
 #pic img {
-    width: 675px;
-    height: 500px;
-    padding-bottom: 200px;
-
+    width: 500px;
+    height: 450px;
+    padding-bottom: 0;
+    margin-top: -100px;
 
 }
 
@@ -172,6 +175,7 @@ ul li a:hover  {
     flex-direction: column;
     text-align: justify;
     padding: 10px;
+
 }
 
 #intro h2 {
@@ -282,4 +286,10 @@ ul li a:hover  {
     box-shadow: 0 0 10px wheat;
 }
 
-
+.footer {
+    background-color: #f2f2f2;
+    padding: 20px;
+    text-align: center;
+    font-size: 14px;
+    color: #666;
+  }
