@@ -28,6 +28,7 @@ html {
     padding: 15px 0;
     align-items: center;
     justify-content: space-between;
+    position: sticky;
 }
 
 .navbar .logo {
@@ -183,28 +184,216 @@ ul li a:hover  {
     margin-bottom: 20px;
 }
 
-/* Portfolio */
-#portfolio {
-    display: flex;
-    flex-direction: column;
-    background-color: rgba(0, 0, 0, 0.2);
-    color: white;
-    align-items: center;
-    padding: 20px;
+/* Gallery */
+input {
+    display: none;
 }
 
-.gallery {
+.container {
+    width: 100%;
+    text-align: center;
+}
+
+.container h1 {
+    font-weight: normal;
+    font-size: 35px;
+    position: relative;
+    margin: 40px 0;
+}
+
+.container h1::before {
+    content: "";
+    position: absolute;
+    width: 100px;
+    height: 3px;
+    background-color: crimson;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+
+.top-content {
+    background-color: rgb(243, 243, 243);
+    width: 90%;
+    margin: 0 auto 20px auto;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    border-radius: 5px;
+    box-sizing: 3px 3px 5px lightgrey;
+}
+
+.container h3 {
+    height: 100%;
+    background-color: rgb(221, 221, 221);
+    line-height: 60px;
+    padding: 0 50px;
+    color: white;
+}
+
+label {
+    display: inline-block;
+    height: 100%;
+    margin: 0 20px;
+    line-height: 60px;
+    font-size: 18px;
+    color: gray;
+    cursor: pointer;
+}
+
+label:hover {
+    color: black;
+}
+
+.photo-gallery {
+    width: 90%;
+    margin: auto;
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-around;
-    box-sizing: border-box;
+    justify-content: space-between;
+    gap: 5px;
+  }
+
+.pic {
+    position: relative;
+    height: 230px;
+    border-radius: 10px;
+    box-shadow: 3px 3px 5px lightgray;
+    cursor: pointer;
+    transition: .5s;
+}
+.pic img {
+    width: 100%;
+    height: 230px;
+    border-radius: 10px;
+    transition: .5s;
+}
+.pic::before {
+    content: "PHOTO GALLERY";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    font-size: 22px;
+    font-weight: bold;
+    width: 100%;
+    margin-top: -100px;
+    opacity: 0;
+    transition: .3s;
+    transition-delay: .2s;
+    z-index: 1;
+}
+.pic::after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    bottom: 0;
+    left: 0;
+    border-radius: 10px;
+    height: 100%;
+    background-color: rgba(0,0,0,.4);
+    transition: .3s;
+}
+.pic:hover {
+    height: 100%;
+}
+.pic:hover::before {
+    margin-top: 0;
+    opacity: 1;
 }
 
-.gallery img {
-    width: 360px;
-    height: 240px;
-    margin: 10px;
+#check1:checked ~ .container .photo-gallery .pic {
+    opacity: 1;
+    transform: scale(1);
+    position: relative;
+    transition: .5s;
 }
+#check2:checked ~ .container .photo-gallery .family {
+    opacity: 1;
+    transform: scale(1);
+    position: relative;
+
+}
+#check2:checked ~ .container .photo-gallery .child,
+#check2:checked ~ .container .photo-gallery .place {
+    opacity: 0;
+    transform: scale(1);
+    position: absolute;
+    transition: .0s;
+}
+
+#check3:checked ~ .container .photo-gallery .child {
+    opacity: 1;
+    transform: scale(1);
+    position: relative;
+
+}
+#check3:checked ~ .container .photo-gallery .family,
+#check3:checked ~ .container .photo-gallery .place {
+    opacity: 0;
+    transform: scale(1);
+    position: absolute;
+    transition: .0s;
+}
+
+#check4:checked ~ .container .photo-gallery .place {
+    opacity: 1;
+    transform: scale(1);
+    position: relative;
+
+}
+#check4:checked ~ .container .photo-gallery .family,
+#check4:checked ~ .container .photo-gallery .child {
+    opacity: 0;
+    transform: scale(1);
+    position: absolute;
+    transition: .0s;
+}
+
+
+  /*Skills */
+  #skills {
+    background-color: #f6f6f6;
+    padding: 50px;
+    margin-top: 50px;
+  }
+
+  #skills h2 {
+    text-align: center;
+    font-size: 36px;
+    margin-bottom: 30px;
+  }
+
+  #skills ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+
+  #skills li {
+    flex-basis: calc(33.33% - 20px);
+    margin-bottom: 30px;
+  }
+
+  #skills h3 {
+    font-size: 24px;
+    margin-bottom: 20px;
+  }
+
+  #skills ul ul {
+    margin-left: 20px;
+    list-style: disc;
+  }
+
+  #skills ul ul li {
+    margin-bottom: 10px;
+  }
+
 
 /* Services */
 #services {
@@ -252,15 +441,16 @@ ul li a:hover  {
     background-color: rgba(0, 0, 0, 0.6);
     color: white;
     padding: 20px;
+
 }
-.form {
+#contact .form {
     display: flex;
     flex-direction: column;
     box-sizing: border-box;
     align-items: center;
     margin: 20px 0px;
 }
-.input {
+#contact .input {
     padding: 12px;
     margin: 15px;
     width: 30%;
@@ -292,4 +482,80 @@ ul li a:hover  {
     text-align: center;
     font-size: 14px;
     color: #666;
+  }
+
+
+@media screen and (max-width: 767px) {
+
+    body {
+      font-size: 16px;
+    }
+
+
+    nav {
+      display: none;
+    }
+
+
+    #menu-button:checked ~ nav {
+      display: block;
+    }
+
+
+    #portfolio {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-around;
+    }
+
+    #portfolio img {
+      width: 100%;
+      margin-bottom: 1rem;
+    }
+
+
+    #about {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    #about img {
+      max-width: 100%;
+    }
+
+    h1.headings {
+      display: none;
+    }
+
+    #contact {
+      padding: 50px 0;
+    }
+
+    #contact-form {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    #contact-form input,
+    #contact-form textarea {
+      width: 100%;
+      padding: 12px;
+      border: none;
+      border-bottom: 1px solid #ccc;
+      margin-bottom: 20px;
+    }
+
+    #contact-form button {
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      font-size: 16px;
+      margin-top: 20px;
+    }
   }
